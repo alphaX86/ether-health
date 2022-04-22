@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 
 function test() {
   var Web3 = require('web3');
-  var provider = 'https://eth-mainnet.alchemyapi.io/v2/g5rpUpvN8EVa4q0r3trp-7HhAeAYP8e5';
+  const provider = 'https://eth-mainnet.alchemyapi.io/v2/g5rpUpvN8EVa4q0r3trp-7HhAeAYP8e5';
   var web3Provider = new Web3.providers.HttpProvider(provider);
   var web3 = new Web3(web3Provider);
   web3.eth.getBlockNumber().then((result) => {
