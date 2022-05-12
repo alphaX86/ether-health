@@ -1,7 +1,7 @@
 import gun from 'gun/gun'
 const api = process.env.NEXT_PUBLIC_API_URL;
 
-const Gun = gun(['http://localhost:8765/gun', 'https://gun-manhattan.herokuapp.com/gun']);
+const Gun = gun(['https://gun-db.herokuapp.com/gun']);
 export default function handler(req,res) {
     var data;
     var dat = Gun.get('dat');
@@ -12,6 +12,6 @@ export default function handler(req,res) {
     
       res.status(200).json({name: `${body.first_name} ${body.last_name}`});
       data = {"first_name": body.first_name, "last_name": body.last_name, "email": body.email, "password": body.password};
-      dat.put(data);
+      dat.put({"users": data});
       console.log("Entry added");
 }

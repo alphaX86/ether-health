@@ -33,17 +33,17 @@ export default function Menu() {
                 Choose your option!
             </p>
             <div className={styles.grid}>
-                <a href="/etx-heal/pages/register" className={styles.card}>
+                <a href="/register" className={styles.card}>
                     <h2>Register</h2>
                     <p>Register to the dapp</p>
                 </a>
 
-                <a href="/etx-heal/pages/login" className={styles.card}>
+                <a href="/login" className={styles.card}>
                     <h2>Login</h2>
                     <p>Login to the dapp</p>
                 </a>
 
-                <a href="/etx-heal/pages/access" className={styles.card}>
+                <a href="/access" className={styles.card}>
                     <h2>Access</h2>
                     <p>Quick Access to the details</p>
                 </a>
