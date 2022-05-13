@@ -2,41 +2,30 @@ pragma solidity ^0.5.16;
 
 contract Content {
 
-    struct Cert {
-        address recipient;
-        bool confirmed;
+    // Private state variable
+    address private owner;
+    string private dbHash;
+     // Defining a constructor   
+     constructor() public{   
+        owner=msg.sender;
     }
-
-    mapping(bytes32 => Cert) public certs;
-    bytes32[] public certList;
-
-    event LogNewCert(address sender, bytes32 cert, address recipient);
-    event LogConfirmed(address sender, bytes32 cert);
-
-    function isCert(bytes32 cert) public view returns(bool isIndeed) {
-        if(cert == 0) return false;
-        return certs[cert].recipient != address(0);
+  
+    // Function to get 
+    // address of owner
+    function getOwner(
+    ) public view returns (address) {    
+        return owner;
     }
-
-    function createCert(bytes32 cert, address recipient) public {
-        require(recipient != address(0));
-        require(!isCert(cert));
-        Cert storage c = certs[cert];
-        c.recipient = recipient;
-        certList.push(cert);
-        emit LogNewCert(msg.sender, cert, recipient);
+    
+    function sendHash(string memory x) public {
+        if(owner != address(0))
+        {
+            dbHash = x;
+        }
+        dbHash = "nil";
     }
-
-    function confirmCert(bytes32 cert) public {
-        require(certs[cert].recipient == msg.sender);
-        require(certs[cert].confirmed == false);
-        certs[cert].confirmed = true;
-        emit LogConfirmed(msg.sender, cert);
-    }
-
-    function isUserCert(bytes32 cert, address user) public view returns(bool) {
-        if(!isCert(cert)) return false;
-        if(certs[cert].recipient != user) return false;
-        return certs[cert].confirmed;
+    
+    function getHash() public view returns (string memory) {
+        return dbHash;
     }
 }

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.8",
     "autoprefixer": "^10.4.7",
     "gun": "^0.2020.1237",
     "next": "12.1.4",
