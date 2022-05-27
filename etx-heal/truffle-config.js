@@ -1,4 +1,4 @@
-const mnemonic = "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat";
+const mnemonic = "secret arrest census laptop grape proud guess catalog wife mom ice thunder";
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 module.exports = {
   // Uncommenting the defaults below

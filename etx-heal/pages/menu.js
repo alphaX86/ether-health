@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Gun from 'gun/gun'
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -17,7 +16,6 @@ function test() {
   });
 }
 
-const gun = Gun();
 export default function Menu() {
   test();
   return(

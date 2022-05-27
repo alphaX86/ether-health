@@ -2,7 +2,6 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Gun from 'gun/gun'
 
 function test() {
   var Web3 = require('web3');
@@ -17,7 +16,6 @@ function test() {
   });
 }
 
-const gun = Gun();
 export default function Home() {
   test();
   return (

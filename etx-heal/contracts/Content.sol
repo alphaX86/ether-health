@@ -3,29 +3,31 @@ pragma solidity ^0.5.16;
 contract Content {
 
     // Private state variable
-    address private owner;
-    string private dbHash;
-     // Defining a constructor   
-     constructor() public{   
-        owner=msg.sender;
+    struct Person {
+        string private dbHash;
+        string name;
+        string email;
+        string phoneno;
+        string details;
+        string addressX;
     }
-  
-    // Function to get 
-    // address of owner
-    function getOwner(
-    ) public view returns (address) {    
-        return owner;
-    }
+
+    Person []entry;
     
-    function sendHash(string memory x) public {
-        if(owner != address(0))
-        {
-            dbHash = x;
+    function sendDetails(string memory dbHash, string memory name, string memory email, string memory phoneno, string memory details, string memory addressX) public {
+        if (dbHash != "") {
+            Person memory p = Person(dbHash, name, email, phoneno, details, addressX);
+            entry.push(p);
         }
-        dbHash = "nil";
     }
     
-    function getHash() public view returns (string memory) {
-        return dbHash;
+    function getHash(string ID) public view returns (string memory name, string memory email, string memory phoneno, string memory details, string memory addressX) {
+        uint32 i;
+        for (i = 0; i < entry.length; i++) {
+            Persons memory p = entry[i];
+            if (entry[i].dbHash == ID) {
+                return(p.name, p.email, p.phoneno, p.details, p.addressX);
+            }
+        return("NIL", "NIL", "NIL", "NIL", "NIL");
     }
 }
