@@ -32,9 +32,9 @@ CREATE TABLE `appointment` (
 -- Dumping data for table `appointment`
 --
 
-INSERT INTO `appointment` (`id`, `patient_name`, `department`, `doctor_name`, `date`, `time`, `email`, `phone`) VALUES
-(6, 'Aditya', 'ENT Department', 'Harish B', '26/03/2020', '10:43 AM', 'aditya08@gmail.com', '9940355430'),
-(10, 'Srinath', 'Opthalmology', 'Sanjay Kannan', '18/03/2020', '1:41 AM', 'srinath@gmail.com', '7865641399');
+INSERT INTO `appointment` (`id`, `patient_name`, `department`, `doctor_name`, `date`, `time`, `email`, `phone`, `uuid`) VALUES
+(6, 'Aditya', 'ENT Department', 'Harish B', '26/03/2020', '10:43 AM', 'aditya08@gmail.com', '9940355430', `0000-00-00-0000`),
+(10, 'Srinath', 'Opthalmology', 'Sanjay Kannan', '18/03/2020', '1:41 AM', 'srinath@gmail.com', '7865641399', `1ab2-ce-00-9892`);
 
 -- --------------------------------------------------------
 
@@ -61,9 +61,9 @@ CREATE TABLE `doctor` (
 -- Dumping data for table `doctor`
 --
 
-INSERT INTO `doctor` (`id`, `first_name`, `last_name`, `email`, `dob`, `gender`, `address`, `phone`, `department`) VALUES
-(39, 'Harish', 'B', 'harishraja484@gmail.com', '31/12/2001', 'male', 'karur', '6383473047', 'ENT Department'),
-(41, 'Sanjay', 'kannan', 'sanjay@gmail.com', '18/03/2001', 'male', 'Trichy', '9500418540', 'Optholmology');
+INSERT INTO `doctor` (`id`, `first_name`, `last_name`, `email`, `dob`, `gender`, `address`, `phone`, `department`, `uuid`) VALUES
+(39, 'Harish', 'B', 'harishraja484@gmail.com', '31/12/2001', 'male', 'karur', '6383473047', 'ENT Department', '1242-23-21-dea2'),
+(41, 'Sanjay', 'kannan', 'sanjay@gmail.com', '18/03/2001', 'male', 'Trichy', '9500418540', 'Optholmology', '4221-d3-f4-3213');
 
 -- --------------------------------------------------------
 

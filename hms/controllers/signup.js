@@ -6,6 +6,7 @@ var mysql = require("mysql");
 var nodemailer = require("nodemailer");
 var randomToken = require("random-token");
 const { v4: uuidv4 } = require('uuid');
+const shortud = require("short-uuid");
 var contr = require.main.require("./models/eth-handle");
 var sweetalert = require("sweetalert2");
 const { check, validationResult } = require("express-validator");
@@ -32,7 +33,7 @@ router.post(
 
     var email = req.body.email;
     var username = req.body.username;
-    var uuid = uuidv4();
+    var uuid = shortud.generate();
 
     db.signup(
       req.body.username,

@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var db = require.main.require ('./models/db_controller');
 var contr = require.main.require ('./models/eth-handle');
 var  sweetalert = require('sweetalert2');
+var shortud = require("short-uuid");
 const { check, validationResult } = require('express-validator');
 
 

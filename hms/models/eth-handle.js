@@ -248,24 +248,18 @@ const rec = "0xe356d87A284d2908DBFD79f6d67d34be2d461C92";
 
 module.exports.testContract = function() {
 	web3.eth.getAccounts().then(console.log);
-	//contr.methods.getAllRecords().call({from: send}).then(console.log);
+	contr.methods.getAllRecords().call({from: send}).then(console.log);
 }
 
-module.exports.deployContract = function(t, val) {
-  const dat = {uuid: t, name: val};
-  var callData = token.addRecord.getData(t, val);
-  res = web3.eth.call({
-    to: rec,
-    data: callData
-  });
-  console.log(res);
+module.exports.deployContract = function(t, v) {
+	console.log(web3.utils.asciiToHex(t) + " " + t);
+	console.log(web3.utils.asciiToHex(v) + " " + v);
+  contr.methods.addRecord(web3.utils.asciiToHex(t), web3.utils.asciiToHex(v)).call({from: send}).then(console.log);
 }
 
 module.exports.getContract = function(t) {
-  HContr.findById(t, function(err, rec){
-    if(!err)
-    {
-      return rec.name;
-    }
-  });
+	console.log(web3.utils.asciiToHex(t) + " " + t);
+  contr.methods.getRecord(web3.utils.asciiToHex(t)).call({from: send}).then(console.log);
+  var hex = contr.methods.getRecord(web3.utils.asciiToHex(t)).call({from: send});
+  return hex;
 }
