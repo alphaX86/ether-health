@@ -21,6 +21,7 @@ var landing = require ('./controllers/landing');
 var logout = require ('./controllers/logout');
 var doc_controller = require ('./controllers/doc_controller');
 var appointment = require ('./controllers/appointment');
+var contr = require.main.require('./models/eth-handle');
 
 var app = express();
 
@@ -45,3 +46,4 @@ app.use('/doc_controller',doc_controller)
 app.use('/doctors',doctors);
 app.use('/appointment',appointment);
 //app.use('/patients',patients);
+contr.testContract();

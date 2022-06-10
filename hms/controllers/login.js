@@ -5,6 +5,7 @@ var session = require ('express-session');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var db = require.main.require ('./models/db_controller');
+var contr = require.main.require ('./models/eth-handle');
 var  sweetalert = require('sweetalert2');
 const { check, validationResult } = require('express-validator');
 
@@ -21,7 +22,7 @@ var con = mysql.createConnection({
     host : 'localhost',
     user : 'root',
     password : '',
-    database : 'hmsystem'
+    database : 'etx-hms'
 });
 
 router.use(session({
@@ -38,8 +39,8 @@ router.use(bodyParser.json());
 
 
 router.post('/',[
-    check('username').notEmpty().withMessage("Username is reequired"),
-    check('password').notEmpty().withMessage("Password is reequired")
+    check('uuid').notEmpty().withMessage("UUID is required"),
+    check('password').notEmpty().withMessage("Password is required")
     
 ], function(request , response){
     const errors = validationResult(request);
@@ -47,7 +48,9 @@ router.post('/',[
         return response.status(422).json({ errors: errors.array() });
       }
 
-    var username = request.body.username;
+    var uuid = request.body.uuid;
+    var t = contr.getContract(uuid);
+    var username = t;
     var password = request.body.password;
     console.log(username);
 

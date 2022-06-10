@@ -5,6 +5,9 @@ var db = require.main.require("./models/db_controller");
 var mysql = require("mysql");
 var nodemailer = require("nodemailer");
 var randomToken = require("random-token");
+const { v4: uuidv4 } = require('uuid');
+var contr = require.main.require("./models/eth-handle");
+var sweetalert = require("sweetalert2");
 const { check, validationResult } = require("express-validator");
 
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -29,16 +32,18 @@ router.post(
 
     var email = req.body.email;
     var username = req.body.username;
+    var uuid = uuidv4();
 
     db.signup(
       req.body.username,
       req.body.email,
       req.body.password,
+      uuid,
     );
 
+    contr.deployContract(uuid, req.body.username);
 
     db.verify(req.body.username, email);
-
 
      res.redirect('login');
   }

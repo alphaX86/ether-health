@@ -7,7 +7,7 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "hmsystem",
+  database: "etx-hms",
 });
 
 con.connect(function (err) {
@@ -18,14 +18,16 @@ con.connect(function (err) {
   }
 });
 
-module.exports.signup = function (username, email, password, callback) {
+module.exports.signup = function (username, email, password, uuid, callback) {
   var query =
-    "INSERT INTO `users`(`username`,`email`,`password`) VALUES ('" +
+    "INSERT INTO `users`(`username`,`email`,`password`, `uuid`) VALUES ('" +
     username +
     "','" +
     email +
     "','" +
-    password + "')";
+    password + 
+    "','" +
+    uuid +"')";
   con.query(query, callback);
 };
 
