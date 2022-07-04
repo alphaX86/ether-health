@@ -6,7 +6,7 @@ This web app is made using React for frontend, Express for backend and MySQL for
 
 ## Instructions:
 1. Make sure you've installed NodeJS and MySQL. If not, install them. 
-2. Since the DB schema has to be made, create a empty database and run the queries mentioned in [nodelogin.sql](./hms/nodelogin.sql)
+2. Since the DB schema has to be made, create a empty database and run the queries mentioned in [nodelogin.sql](./hms/nodelogin.sql). Also, mention the database used in the project folder or rename the db as "etx-hms"
 3. After that, run the web app using `yarn dev` (install `yarn` to avoid installing dependencies in `npm` like Visual C++)
 4. Create a user using signup page
 5. Then finally start using the web app
