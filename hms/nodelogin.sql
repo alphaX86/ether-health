@@ -1,16 +1,7 @@
--- phpMyAdmin SQL Dump
--- version 5.0.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Mar 16, 2020 at 12:41 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+05:30";
 
 --
 -- Table structure for table `appointment`
@@ -241,6 +232,3 @@ ALTER TABLE `users`
 --
 ALTER TABLE `verify`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-COMMIT;
-
-
